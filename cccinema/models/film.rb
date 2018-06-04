@@ -63,6 +63,14 @@ class Film
     return popular_time[0]['film_time']
   end
 
+  # Find price of ticket by movie name
+  def self.find_price_by_movie_name(title) # Searching; for PDA
+    sql = "SELECT price FROM films WHERE title = $1"
+    values = [title]
+    price = SqlRunner.run(sql, values)
+    return price[0]['price']
+  end
+
   def self.delete_all() #Delete all
     sql = "DELETE FROM films"
     SqlRunner.run(sql)

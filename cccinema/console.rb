@@ -27,6 +27,8 @@ film2.save()
 film3.save()
 film4.save()
 
+price = Film.find_price_by_movie_name('PK')
+
 # ticket1 = Ticket.new({'cust_id' => cust1.id, 'film_id' => film3.id})
 # ticket2 = Ticket.new({'cust_id' => cust2.id, 'film_id' => film1.id})
 # ticket3 = Ticket.new({'cust_id' => cust3.id, 'film_id' => film1.id})
@@ -65,6 +67,8 @@ cust_count = film1.count_of_customers_watching_film()
 time = film1.popular_time()
 
 cust2.cancel_ticket(ticket2)
+
+cust = Customer.customer_with_max_funds()
 
 binding.pry
 nil

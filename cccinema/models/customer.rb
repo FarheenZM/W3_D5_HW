@@ -114,6 +114,13 @@ class Customer
 
   end
 
+  def self.customer_with_max_funds()  # Sorting ; for PDA
+    sql = "SELECT * FROM customers ORDER BY funds DESC"
+    results = SqlRunner.run(sql)
+    cust_name = results[0]['name']
+    return cust_name
+  end
+
   def self.delete_all() #Delete all
     sql = "DELETE FROM customers"
     SqlRunner.run(sql)
